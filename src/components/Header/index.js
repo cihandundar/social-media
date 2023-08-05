@@ -20,7 +20,7 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         <div className="logo">
-          <Link to="/">
+          <Link to="#">
             <h2>22 Media</h2>
           </Link>
         </div>
@@ -28,7 +28,13 @@ const Header = () => {
           {user ? (
             <ul>
               <li>
-                <span>Hi {user.displayName}</span>
+                <span style={{ color: "white" }}>Hi {user.displayName}</span>
+              </li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
               </li>
               <li>
                 <button onClick={onLogout} className="btn">
