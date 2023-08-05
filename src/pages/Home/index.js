@@ -1,3 +1,5 @@
+import Post from "components/Post";
+import Sidebar from "components/Sidebar";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +14,12 @@ const Home = () => {
     }
   }, [user, navigate]);
 
-  return <div>Home</div>;
+  return (
+    <main>
+      <Sidebar />
+      <Post />
+    </main>
+  );
 };
 
 export default Home;
