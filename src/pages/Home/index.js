@@ -1,5 +1,4 @@
-import Post from "components/Post";
-import Sidebar from "components/Sidebar";
+import { Navbar, Post, Sidebar } from "components";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -16,8 +15,9 @@ const Home = () => {
 
   return (
     <main>
-      <Sidebar />
+      <Navbar />
       <Post />
+      <Sidebar />
     </main>
   );
 };
