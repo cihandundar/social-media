@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSignInAlt, FaUser } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 
@@ -31,10 +32,7 @@ const Header = () => {
                 <span style={{ color: "white" }}>Hi {user.displayName}</span>
               </li>
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
+                <AiOutlineHome /> <Link to="/">Home</Link>
               </li>
               <li>
                 <button onClick={onLogout} className="btn">
