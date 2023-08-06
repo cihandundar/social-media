@@ -1,0 +1,67 @@
+.aside {
+  height: 100vh;
+  width: 25%;
+  background-color: rgb(65, 62, 62);
+  padding: 15px;
+  border-radius: 10px;
+  &__container {
+    > p {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      > h3,
+      span {
+        color: #fff;
+      }
+    }
+    &__user {
+      &__card {
+        margin-bottom: 20px;
+        &__title {
+          display: flex;
+          align-items: center;
+          > h4 {
+            margin-left: 10px;
+            color: #fff;
+          }
+          > img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+        &__btn {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+.confirm {
+  background: #54a0ec;
+
+  border: none;
+  width: 100px;
+  height: 35px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.delete {
+  background-color: gainsboro;
+  border: none;
+  width: 100px;
+  height: 35px;
+  font-weight: bold;
+  border-radius: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
