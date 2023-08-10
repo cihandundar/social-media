@@ -16,19 +16,19 @@ const Navbar = () => {
           </li>
           <li className="nav__container__list__link">
             <PiTelevisionSimpleBold />
-            <Link to="/profile">Newsfeed</Link>
+            <Link to="#">Newsfeed</Link>
           </li>
           <li className="nav__container__list__link">
             <SiOpenbadges />
-            <Link to="/profile">Badges</Link>
+            <Link to="#">Badges</Link>
           </li>
           <li className="nav__container__list__link">
             <MdOutlineExplore />
-            <Link to="/profile">Explore Stories</Link>
+            <Link to="#">Explore Stories</Link>
           </li>
           <li className="nav__container__list__link">
             <MdGroups2 />
-            <Link to="/profile">Popular Groups</Link>
+            <Link to="#">Popular Groups</Link>
           </li>
         </ul>
         <ul className="nav__container__list"></ul>
