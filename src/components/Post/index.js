@@ -1,5 +1,5 @@
 import { fetchUser } from "features/user/userSlice";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -11,22 +11,45 @@ const Post = () => {
     dispatch(fetchUser());
   }, [dispatch]);
 
+  const [followedStates, setFollowedStates] = useState(() => {
+    const storedFollowedStates =
+      JSON.parse(localStorage.getItem("followedStates")) || {};
+    return storedFollowedStates;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("followedStates", JSON.stringify(followedStates));
+  }, [followedStates]);
+
+  const handleFollowClick = (id) => {
+    setFollowedStates((prevState) => ({
+      ...prevState,
+      [id]: true,
+    }));
+  };
+
   return (
     <section className="post">
       <div className="post__container">
         {user?.map((item) => (
           <div className="card" key={item.id}>
             <div className="card__title">
-              <div className="card__title__wrapper">
-                <div className="card__title__img">
-                  <img src={item.avatar} alt="" />
+              <Link to={`/profile/${item?.id}`}>
+                <div className="card__title__wrapper">
+                  <div className="card__title__img">
+                    <img src={item.avatar} alt="" />
+                  </div>
+                  <h3>{item.title}</h3>
                 </div>
-                <h3>{item.title}</h3>
-              </div>
+              </Link>
               <div className="card__title__follow">
-                <Link to="#">
-                  <h4>+ Follow us</h4>
-                </Link>
+                {!followedStates[item.id] ? (
+                  <Link to="#" onClick={() => handleFollowClick(item.id)}>
+                    <h4>+ Follow us</h4>
+                  </Link>
+                ) : (
+                  <h4 style={{ color: "white" }}>Followed</h4>
+                )}
               </div>
             </div>
             <div className="card__content">
