@@ -7,25 +7,36 @@ import User3 from "../../assets/images/user3.jpg";
 import User4 from "../../assets/images/user4.jpg";
 
 const Sidebar = () => {
-  const [friendRequests, setFriendRequests] = useState([
+  const initialFriendRequests = [
     { id: 1, name: "Anthony Daugloi", image: User1 },
     { id: 2, name: "John Doe", image: User2 },
     { id: 3, name: "Jessica Biel", image: User3 },
     { id: 4, name: "Arden Cho", image: User4 },
-  ]);
+  ];
+
+  const [friendRequests, setFriendRequests] = useState(initialFriendRequests);
 
   const handleConfirm = (id) => {
     const confirmedRequest = friendRequests.find(
       (request) => request.id === id
     );
-    setFriendRequests(friendRequests.filter((request) => request.id !== id));
+    setFriendRequests((prevRequests) =>
+      prevRequests.filter((request) => request.id !== id)
+    );
     toast.success(
       `You have accepted the friend request from ${confirmedRequest.name}`
     );
   };
 
   const handleDelete = (id) => {
-    setFriendRequests(friendRequests.filter((request) => request.id !== id));
+    setFriendRequests((prevRequests) =>
+      prevRequests.filter((request) => request.id !== id)
+    );
+    toast.error("Friend request deleted.");
+  };
+
+  const handleSeeAll = () => {
+    setFriendRequests(initialFriendRequests);
   };
 
   const friendRequestCount = friendRequests.length;
@@ -35,7 +46,9 @@ const Sidebar = () => {
       <div className="aside__container">
         <div className="aside__container__title">
           <h3>Friend Request</h3>
-          <span>See all</span>
+          <span style={{ cursor: "pointer" }} onClick={handleSeeAll}>
+            See all
+          </span>
         </div>
         {friendRequestCount > 0 && (
           <p>{`You have ${friendRequestCount} friend requests.`}</p>
