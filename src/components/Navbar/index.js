@@ -11,24 +11,34 @@ const Navbar = () => {
         <h3>New Feeds</h3>
         <ul className="nav__container__list">
           <li className="nav__container__list__link">
-            <CgProfile />
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile">
+              <CgProfile />
+              <p>Profile</p>
+            </Link>
           </li>
           <li className="nav__container__list__link">
-            <PiTelevisionSimpleBold />
-            <Link to="#">Newsfeed</Link>
+            <Link to="#">
+              <PiTelevisionSimpleBold />
+              <p> Newsfeed</p>
+            </Link>
           </li>
           <li className="nav__container__list__link">
-            <SiOpenbadges />
-            <Link to="#">Badges</Link>
+            <Link to="#">
+              <SiOpenbadges />
+              <p> Badges</p>
+            </Link>
           </li>
           <li className="nav__container__list__link">
-            <MdOutlineExplore />
-            <Link to="#">Explore Stories</Link>
+            <Link to="#">
+              <MdOutlineExplore />
+              <p>Explore Stories</p>
+            </Link>
           </li>
           <li className="nav__container__list__link">
-            <MdGroups2 />
-            <Link to="#">Popular Groups</Link>
+            <Link to="#">
+              <MdGroups2 />
+              <p>Popular Groups</p>
+            </Link>
           </li>
         </ul>
         <ul className="nav__container__list"></ul>

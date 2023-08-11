@@ -24,7 +24,7 @@ const Post = () => {
   const handleFollowClick = (id) => {
     setFollowedStates((prevState) => ({
       ...prevState,
-      [id]: true,
+      [id]: !prevState[id],
     }));
   };
 
@@ -48,7 +48,12 @@ const Post = () => {
                     <h4>+ Follow us</h4>
                   </Link>
                 ) : (
-                  <h4 style={{ color: "white" }}>Followed</h4>
+                  <h4
+                    style={{ color: "white", cursor: "pointer" }}
+                    onClick={() => handleFollowClick(item.id)}
+                  >
+                    Followed
+                  </h4>
                 )}
               </div>
             </div>
