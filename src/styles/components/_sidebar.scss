@@ -1,8 +1,8 @@
 .aside {
-  height: 100vh;
   position: sticky;
   top: 10px;
   width: 25%;
+  max-height: 560px;
   background-color: rgb(65, 62, 62);
   padding: 15px;
   border-radius: 10px;
@@ -47,7 +47,6 @@
 
 .confirm {
   background: #54a0ec;
-
   border: none;
   width: 100px;
   height: 35px;

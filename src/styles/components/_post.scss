@@ -1,5 +1,8 @@
 .post {
   width: 50%;
+  @include breakpoint(l) {
+    width: 60%;
+  }
 }
 
 .card {

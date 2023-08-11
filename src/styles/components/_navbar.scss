@@ -1,23 +1,37 @@
 .nav {
   position: sticky;
   top: 10px;
-  height: 100vh;
+  max-height: 560px;
   background-color: rgb(65, 62, 62);
   padding: 15px;
   border-radius: 10px;
+  @include breakpoint(l) {
+    width: 5%;
+  }
   &__container {
     > h3 {
       color: #fff;
       margin-bottom: 30px;
+      @include breakpoint(l) {
+        display: none;
+      }
     }
     &__list {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+
       &__link {
         margin-bottom: 20px;
         > a {
-          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          > p {
+            margin-left: 5px;
+            @include breakpoint(l) {
+              display: none;
+            }
+          }
         }
       }
     }

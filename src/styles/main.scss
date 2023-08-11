@@ -34,4 +34,7 @@ main {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  @include breakpoint(l) {
+    max-width: 1000px;
+  }
 }
