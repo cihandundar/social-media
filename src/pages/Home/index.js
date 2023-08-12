@@ -32,8 +32,9 @@ const Home = () => {
       ) : (
         <div> */}
       <Navbar />
-      <Post />
       <Sidebar />
+      <Post />
+
       {/* </div>
       )} */}
     </main>

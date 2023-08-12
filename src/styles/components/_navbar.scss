@@ -1,34 +1,48 @@
 .nav {
-  position: sticky;
-  top: 10px;
   max-height: 560px;
   background-color: rgb(65, 62, 62);
   padding: 15px;
   border-radius: 10px;
   @include breakpoint(l) {
     width: 5%;
+    max-height: 660px;
+  }
+  @include breakpoint(md) {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &__container {
-    > h3 {
-      color: #fff;
-      margin-bottom: 30px;
-      @include breakpoint(l) {
-        display: none;
-      }
-    }
     &__list {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      @include breakpoint(md) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
 
       &__link {
         margin-bottom: 20px;
         > a {
           display: flex;
           align-items: center;
+          @include breakpoint(md) {
+            flex-direction: column;
+            text-align: center;
+          }
           > p {
             margin-left: 5px;
             @include breakpoint(l) {
+              display: none;
+            }
+            @include breakpoint(md) {
+              display: block;
+            }
+            @include breakpoint(sm) {
               display: none;
             }
           }

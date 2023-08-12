@@ -8,7 +8,6 @@ const Navbar = () => {
   return (
     <nav className="nav">
       <div className="nav__container">
-        <h3>New Feeds</h3>
         <ul className="nav__container__list">
           <li className="nav__container__list__link">
             <Link to="/profile">
@@ -41,7 +40,6 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <ul className="nav__container__list"></ul>
       </div>
     </nav>
   );

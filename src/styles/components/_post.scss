@@ -3,6 +3,9 @@
   @include breakpoint(l) {
     width: 60%;
   }
+  @include breakpoint(sm) {
+    width: 100%;
+  }
 }
 
 .card {

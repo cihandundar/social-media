@@ -1,31 +1,61 @@
 .aside {
-  position: sticky;
-  top: 10px;
   width: 25%;
   max-height: 560px;
   background-color: rgb(65, 62, 62);
   padding: 15px;
   border-radius: 10px;
+  @include breakpoint(l) {
+    max-height: 660px;
+  }
+  @include breakpoint(md) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  @include breakpoint(sm) {
+    max-height: 100%;
+  }
   &__container {
     > p {
       color: #fff;
       margin-bottom: 10px;
+      @include breakpoint(md) {
+        text-align: center;
+      }
     }
     &__title {
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
+      @include breakpoint(l) {
+        flex-direction: column;
+      }
+      @include breakpoint(md) {
+        flex-direction: row;
+      }
+
       > h3,
       span {
         color: #fff;
       }
     }
     &__user {
+      @include breakpoint(md) {
+        display: flex;
+        justify-content: space-between;
+      }
+      @include breakpoint(sm) {
+        flex-direction: column;
+        align-items: center;
+      }
       &__card {
         margin-bottom: 20px;
+
         &__title {
           display: flex;
           align-items: center;
+          @include breakpoint(l) {
+            flex-direction: column;
+          }
           > h4 {
             margin-left: 10px;
             color: #fff;
@@ -39,6 +69,15 @@
         }
         &__btn {
           margin-top: 15px;
+          @include breakpoint(l) {
+            display: flex;
+          }
+          @include breakpoint(md) {
+            flex-direction: column;
+          }
+          @include breakpoint(sm) {
+            flex-direction: row;
+          }
         }
       }
     }
@@ -65,4 +104,14 @@
   border-radius: 30px;
   margin-left: 10px;
   cursor: pointer;
+  @include breakpoint(l) {
+    margin-left: 0;
+  }
+  @include breakpoint(md) {
+    margin-top: 5px;
+  }
+  @include breakpoint(sm) {
+    margin-top: 0;
+    margin-left: 10px;
+  }
 }
