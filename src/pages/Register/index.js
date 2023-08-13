@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 const Register = () => {
+  const isLoading = useSelector((state) => state?.post?.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -57,67 +58,71 @@ const Register = () => {
 
   return (
     <section className="register">
-      <div className="register__container">
-        <div className="left">
-          <img src={Logo} alt="" />
-        </div>
-        <div className="right">
-          <div>
-            <h1>Create account</h1>
+      {isLoading ? (
+        <p className="loading">Loading...</p>
+      ) : (
+        <div className="register__container">
+          <div className="left">
+            <img src={Logo} alt="" />
           </div>
-          <div>
-            <form onSubmit={onSubmit} className="form">
-              <div className="form__group">
-                <input
-                  type="text"
-                  className="form__control"
-                  id="userName"
-                  name="userName"
-                  value={userName}
-                  placeholder="Enter name"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form__group">
-                <input
-                  type="email"
-                  className="form__control"
-                  id="email"
-                  name="email"
-                  value={email}
-                  placeholder="Email"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form__group">
-                <input
-                  type="password"
-                  className="form__control"
-                  id="password"
-                  name="password"
-                  value={password}
-                  placeholder="Password"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form__group">
-                <input
-                  type="password"
-                  className="form__control"
-                  id="passwordControl"
-                  name="passwordControl"
-                  value={passwordControl}
-                  placeholder="Re-enter password"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form__group">
-                <button type="submit">Sign up</button>
-              </div>
-            </form>
+          <div className="right">
+            <div>
+              <h1>Create account</h1>
+            </div>
+            <div>
+              <form onSubmit={onSubmit} className="form">
+                <div className="form__group">
+                  <input
+                    type="text"
+                    className="form__control"
+                    id="userName"
+                    name="userName"
+                    value={userName}
+                    placeholder="Enter name"
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="form__group">
+                  <input
+                    type="email"
+                    className="form__control"
+                    id="email"
+                    name="email"
+                    value={email}
+                    placeholder="Email"
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="form__group">
+                  <input
+                    type="password"
+                    className="form__control"
+                    id="password"
+                    name="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="form__group">
+                  <input
+                    type="password"
+                    className="form__control"
+                    id="passwordControl"
+                    name="passwordControl"
+                    value={passwordControl}
+                    placeholder="Re-enter password"
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="form__group">
+                  <button type="submit">Sign up</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

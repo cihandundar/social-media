@@ -17,14 +17,6 @@ const Home = () => {
     <main>
       {/* {isLoading ? (
         <p
-          style={{
-            color: "white",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100vh",
-            width: "100%",
-          }}
           className="loading"
         >
           Loading...
