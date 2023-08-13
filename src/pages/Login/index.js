@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state?.post?.isLoading);
 
   const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -51,46 +52,50 @@ const Login = () => {
 
   return (
     <section className="register">
-      <div className="register__container">
-        <div className="left">
-          <img src={Logo} alt="" />
-        </div>
-        <div className="right">
-          <div>
-            <h1>Sign In</h1>
+      {isLoading ? (
+        <p className="loading">Loading...</p>
+      ) : (
+        <div className="register__container">
+          <div className="left">
+            <img src={Logo} alt="" />
           </div>
-          <div>
-            <form onSubmit={onSubmit} className="form">
-              <div className="form__group">
-                <input
-                  type="email"
-                  className="form__control"
-                  id="email"
-                  name="email"
-                  value={email}
-                  placeholder="Email"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form__group">
-                <input
-                  type="password"
-                  className="form__control"
-                  id="password"
-                  name="password"
-                  value={password}
-                  placeholder="Password"
-                  onChange={onChange}
-                />
-              </div>
+          <div className="right">
+            <div>
+              <h1>Sign In</h1>
+            </div>
+            <div>
+              <form onSubmit={onSubmit} className="form">
+                <div className="form__group">
+                  <input
+                    type="email"
+                    className="form__control"
+                    id="email"
+                    name="email"
+                    value={email}
+                    placeholder="Email"
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="form__group">
+                  <input
+                    type="password"
+                    className="form__control"
+                    id="password"
+                    name="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={onChange}
+                  />
+                </div>
 
-              <div className="form__group">
-                <button type="submit">Sign in</button>
-              </div>
-            </form>
+                <div className="form__group">
+                  <button type="submit">Sign in</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
