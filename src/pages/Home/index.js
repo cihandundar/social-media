@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-  // const isLoading = useSelector((state) => state?.post?.isLoading);
+
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -15,20 +15,9 @@ const Home = () => {
 
   return (
     <main>
-      {/* {isLoading ? (
-        <p
-          className="loading"
-        >
-          Loading...
-        </p>
-      ) : (
-        <div> */}
       <Navbar />
       <Sidebar />
       <Post />
-
-      {/* </div>
-      )} */}
     </main>
   );
 };
