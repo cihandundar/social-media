@@ -43,7 +43,6 @@ const Post = () => {
       const updatedLikedPosts = { ...prevLikedPosts };
       updatedLikedPosts[id] = !updatedLikedPosts[id];
 
-      // Save to localStorage
       localStorage.setItem("likedPosts", JSON.stringify(updatedLikedPosts));
 
       return updatedLikedPosts;
@@ -79,7 +78,7 @@ const Post = () => {
                 )}
               </div>
             </div>
-            {followedStates[item.id] && ( // Eğer takip ediliyorsa
+            {followedStates[item.id] && (
               <div className="card__content">
                 <img src={item.images} alt="" />
                 <div className="card__content__description">
