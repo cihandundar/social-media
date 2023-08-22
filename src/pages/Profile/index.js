@@ -153,7 +153,7 @@ const Profile = () => {
                               <p> {todo.text}</p>
                             </span>
                             <button
-                              className="btn"
+                              className="btn edit"
                               style={{ color: "green" }}
                               onClick={() => handleEditTodo(index)}
                             >
@@ -164,14 +164,14 @@ const Profile = () => {
                         {editedTodo.index === index && (
                           <button
                             style={{ color: "green" }}
-                            className="btn"
+                            className="btn edit"
                             onClick={handleSaveEdit}
                           >
                             Save
                           </button>
                         )}
                         <button
-                          className="btn"
+                          className="btn edit"
                           style={{ color: "red" }}
                           onClick={() => handleRemoveTodo(index)}
                         >

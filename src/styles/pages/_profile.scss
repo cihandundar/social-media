@@ -115,6 +115,10 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
+            margin-top: 20px;
+            @include breakpoint(xs) {
+              flex-direction: column;
+            }
             > input {
               width: 100%;
               padding: 10px 30px;
@@ -134,5 +138,11 @@
         }
       }
     }
+  }
+}
+
+.edit {
+  @include breakpoint(xss) {
+    width: 100%;
   }
 }
