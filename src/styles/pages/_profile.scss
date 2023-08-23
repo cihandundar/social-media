@@ -103,7 +103,10 @@
           > button {
             height: 50px;
             font-weight: bold;
+            background-color: rgb(65, 62, 62);
+            color: #fff;
             cursor: pointer;
+            margin-top: 10px;
           }
         }
         &__list {
@@ -142,6 +145,7 @@
 }
 
 .edit {
+  background-color: rgb(65, 62, 62);
   @include breakpoint(xss) {
     width: 100%;
   }
