@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Post = () => {
   const user = useSelector((state) => state?.post?.user);
-
+  const isLoading = useSelector((state) => state?.post?.isLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());
@@ -51,53 +51,57 @@ const Post = () => {
 
   return (
     <section className="post">
-      <div className="post__container">
-        {user?.map((item) => (
-          <div className="card" key={item.id}>
-            <div className="card__title">
-              <Link to={`/profile/${item?.id}`}>
-                <div className="card__title__wrapper">
-                  <div className="card__title__img">
-                    <img src={item.avatar} alt="" />
+      {isLoading ? (
+        <p className="loading">Loading...</p>
+      ) : (
+        <div className="post__container">
+          {user?.map((item) => (
+            <div className="card" key={item.id}>
+              <div className="card__title">
+                <Link to={`/profile/${item?.id}`}>
+                  <div className="card__title__wrapper">
+                    <div className="card__title__img">
+                      <img src={item.avatar} alt="" />
+                    </div>
+                    <h3>{item.title}</h3>
                   </div>
-                  <h3>{item.title}</h3>
+                </Link>
+                <div className="card__title__follow">
+                  {!followedStates[item.id] ? (
+                    <Link to="#" onClick={() => handleFollowClick(item.id)}>
+                      <h4>+ Follow us</h4>
+                    </Link>
+                  ) : (
+                    <h4
+                      style={{ color: "white", cursor: "pointer" }}
+                      onClick={() => handleFollowClick(item.id)}
+                    >
+                      Followed
+                    </h4>
+                  )}
                 </div>
-              </Link>
-              <div className="card__title__follow">
-                {!followedStates[item.id] ? (
-                  <Link to="#" onClick={() => handleFollowClick(item.id)}>
-                    <h4>+ Follow us</h4>
-                  </Link>
-                ) : (
-                  <h4
-                    style={{ color: "white", cursor: "pointer" }}
-                    onClick={() => handleFollowClick(item.id)}
-                  >
-                    Followed
-                  </h4>
-                )}
               </div>
+              {followedStates[item.id] && (
+                <div className="card__content">
+                  <img src={item.images} alt="" />
+                  <div className="card__content__description">
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="card__content__actions">
+                    <button
+                      className="like-btn"
+                      onClick={() => handleLikeClick(item.id)}
+                      style={{ color: likedPosts[item.id] ? "red" : "black" }}
+                    >
+                      {likedPosts[item.id] ? "Unlike" : "Like"}
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
-            {followedStates[item.id] && (
-              <div className="card__content">
-                <img src={item.images} alt="" />
-                <div className="card__content__description">
-                  <p>{item.description}</p>
-                </div>
-                <div className="card__content__actions">
-                  <button
-                    className="like-btn"
-                    onClick={() => handleLikeClick(item.id)}
-                    style={{ color: likedPosts[item.id] ? "red" : "black" }}
-                  >
-                    {likedPosts[item.id] ? "Unlike" : "Like"}
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };
